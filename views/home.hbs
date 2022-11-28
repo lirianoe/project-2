@@ -1,0 +1,23 @@
+
+<div class="page-header">
+    <div class ="title">
+        <h1>Products</h1>
+        <p>Church Collection</p>
+    </div>
+    <div id="product1">
+    {{#each foundProducts}}
+     {{!-- <a href="/{{id}}"> --}}
+    <div class="product-home">
+    <div class="img-home">
+    <img src="{{imageUrl}}" alt="image" />
+    </div>
+    <div class="description">
+    <h5>{{name}}</h5>
+    <h4>${{price}}</h4>
+    <a href="/cart/{{id}}"><i class="fa-solid fa-bag-shopping" ></i></a>
+</div>
+
+</div>
+    {{/each}}
+    </div>
+</div>  

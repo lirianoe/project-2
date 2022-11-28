@@ -1,0 +1,19 @@
+
+  <div>
+    <ul>
+      {{#each cart}}
+        <li>
+          <span>{{qty}}</span>
+          <strong>{{item.name}}</strong>
+          <span>${{price}}</span>
+          <div>
+            <button type="button">Action</button>
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+  <div>
+    <strong>Total: {{totalPrice}} </strong>
+  </div>
+  <button><a href="">Checkout</a></button>
