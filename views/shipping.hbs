@@ -1,0 +1,88 @@
+<div id="shipping">
+<h1>Shipping Information</h1>
+
+<form action="/cart/shipping" method="post" class="shipping-info">
+
+  <div>
+    <label for="firstName"></label>
+  </div>
+  <div>
+    <input type="text" name="firstName" id="firstName" placeholder="First Name*"/>
+  </div>
+
+  <br />
+
+  <div>
+    <label for="lastName"></label>
+  </div>
+  <div>
+    <input type="text" name="lastName" id="lastName" placeholder="Last Name*"/>
+  </div>
+
+  <br />
+
+  <div>
+    <label for="streetAddress"></label>
+  </div>
+  <div>
+    <input type="text" name="streetAddress" id="streetAddress" placeholder="Street Adress*"/>
+  </div>
+
+  <br />
+
+  <div>
+    <label for="apt"></label>
+  </div>
+  <div>
+    <input type="text" name="apt" id="apt" placeholder="Apt, suite, etc. (optional)"/>
+  </div>
+
+  <br />
+<div>
+    <label for="city"></label>
+  </div>
+  <div>
+    <input type="text" name="city" id="city" placeholder="City*"/>
+  </div>
+
+  <br />
+
+  <div>
+    <label for="state"></label>
+  </div>
+  <div>
+    <input type="text" name="text" id="text" placeholder="State*"/>
+  </div>
+
+  <br />
+
+  <div>
+    <label for="zipCode"></label>
+  </div>
+  <div>
+    <input type="text" name="zipCode" id="zipCode" placeholder="Zip Code*"/>
+  </div>
+
+  <br />
+
+  <div>
+    <label for="phoneNumber"></label>
+  </div>
+  <div>
+    <input type="text" name="phoneNumber" id="phoneNumber" placeholder="Phone Number"/>
+  </div>
+
+  
+
+  <br />
+  <button type="submit" class="button">Continue</button>
+
+<br>
+
+{{#if errorMessage}}
+<p style="color: red;">{{errorMessage}}</p>
+{{/if}}
+
+</div>
+
+</form>

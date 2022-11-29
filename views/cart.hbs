@@ -1,19 +1,52 @@
+<div id="cart">
+<table width="100%">
+    <thead>
+        <tr>
+            <td>Remove</td>
+            <td>Image</td>
+            <td>Product</td>
+            <td>Price</td>
+            <td>Quantity</td>
+            <td>Subtotal</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each cart}}
+        <tr>
+            <td><a href="/cart/{{item._id}}/delete-product"><i class="fa-solid fa-trash"></i></a></td>
+            <td><img src="{{item.imageUrl}}" alt=""></td>
+            <td><strong>{{item.name}}</strong></td>
+            <td><span>${{item.price}}</span></td>
+            <td><span>{{qty}}</span></td>
+            <td><span>${{price}}</span></td>
+            <td><a href="">Edit</a></td>
+        </tr> 
+        {{/each}}
+    </tbody>
+</table>
+</div>
 
-  <div>
-    <ul>
-      {{#each cart}}
-        <li>
-          <span>{{qty}}</span>
-          <strong>{{item.name}}</strong>
-          <span>${{price}}</span>
-          <div>
-            <button type="button">Action</button>
-          </div>
-        </li>
-      {{/each}}
-    </ul>
-  </div>
-  <div>
-    <strong>Total: {{totalPrice}} </strong>
-  </div>
-  <button><a href="">Checkout</a></button>
+     
+    <div id="subtotal">
+        <h3>Cart Totals</h3>
+        <table>
+            <tr>
+                <td>Cart Subtotal</td>
+                <td><span>${{totalPrice}}</span></td>
+            </tr>
+            <tr>
+                <td>Shipping</td>
+                <td>Free</td>
+            </tr>
+            <tr>
+                <td><strong>Total</strong></td>
+                <td><strong>${{totalPrice}}</strong></td>
+            </tr>
+            
+        </table>
+        <button class="checkout-button"><a href="/cart/shipping">Checkout</a></button>
+    </div>
+  
+  
+  

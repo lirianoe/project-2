@@ -1,13 +1,13 @@
 <h1>login</h1>
 
-<form action="/auth/logIn" method="post" class="logIn">
+<form action="/auth/login" method="post" class="logIn">
 
   <div>
     <label for="username">Username</label>
   </div>
 
   <div>
-    <input type="text" name="userame" id="username"/>
+    <input type="text" name="username" id="username"/>
   </div>
 
   <br />
@@ -23,6 +23,8 @@
   <button type="submit" class="button">Log in</button>
 
 <br>
+
+<p>You don't have an account? <span><a href="/auth/signup">Sign Up</a></span></p>
 
 {{#if errorMessage}}
 <p style="color: red;">{{errorMessage}}</p>

@@ -10,24 +10,13 @@ router.get("/", function (req, res, next) {
 
 router.get("/home", (req, res, next) => {
   Product.find()
-    .then((foundProducts) => {
-      res.render("home", { foundProducts });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.send(err);
-    });
-});
-
-router.get("/:id", (req, res, next) => {
-  Product.findById(req.params.id)
-    .then((foundProduct) => {
-      res.render("product-detail", { foundProduct });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.send(err);
-    });
+  .then((foundProducts) => {
+    res.render("home", { foundProducts });
+  })
+  .catch((err) => {
+    console.log(err);
+    res.send(err);
+  });
 });
 
 router.get('/aboutUs', (req, res, next) => {
@@ -37,6 +26,21 @@ router.get('/aboutUs', (req, res, next) => {
 router.get('/contact', (req, res, next) => {
   res.render('contact')
 })
+
+router.get("/:id", (req, res, next) => {
+
+  Product.findById(req.params.id)
+    .then((foundProduct) => {
+      console.log(foundProduct)
+      res.render("product-detail", foundProduct,);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.send(err);
+    });
+});
+
+
 
 
 

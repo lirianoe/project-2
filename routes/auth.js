@@ -8,9 +8,9 @@ router.get('/login', (req, res, next) => {
 })
 
 router.post('/login', (req, res, next) => {
-    if (!req.body.username || req.body.password){
+    if (!req.body.username || !req.body.password){
         res.render('login', {errorMessage: "All fields are required"})
-        return
+        return;
     }
 
 
@@ -22,7 +22,7 @@ router.post('/login', (req, res, next) => {
                 let correctPassword = bcryptjs.compareSync(req.body.password, foundUser.password);
                 if(correctPassword) {
                     req.session.user = foundUser;
-                    res.render('home')
+                    res.redirect('/home')
                 } else {
                     res.render('login', {errorMessage: "Incorrect Password or Username"})
                 }
@@ -44,7 +44,7 @@ router.post('/login', (req, res, next) => {
         User.findOne({ username: req.body.username})
             .then(foundUser => {
                 if (foundUser) {
-                    res.render('signUp.hbs', { errorMessage: "Sorry user already exists" })
+                    res.render('signup.hbs', { errorMessage: "Sorry user already exists" })
                     return;
                 }
                 return User.create({
@@ -65,8 +65,9 @@ router.post('/login', (req, res, next) => {
 
     router.get('/logout', (req, res, nexr) => {
         req.session.destroy()
-        res.render('login', {errorMessage: "You have logges out"})
+        res.render('login', {errorMessage: "You have logged out"})
     })
+
 
 
     module.exports = router;
