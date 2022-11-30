@@ -99,6 +99,7 @@ p {
 
 .product-home img {
   width: 100%;
+  height: 350px;
   border-radius: 20px;
 
 }
@@ -228,6 +229,21 @@ p {
   
 }
 
+ .icon a{
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: 600;
+  color: black;
+}
+
+ #shiping .icon a{
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: 600;
+  color: black;
+  margin-bottom: 10%;
+}
+
 #product .product-info {
   width: 50%;
   padding-top: 30px;
@@ -273,12 +289,24 @@ p {
 
 /* cart page */
 
+#cart{
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
 #cart table{
-  margin-top: 50px;
+  /* margin-top: 50px;
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
-  white-space: nowrap;
+  white-space: nowrap; */
+
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #cart table img{
@@ -299,7 +327,8 @@ p {
 }
 #cart table td:nth-child(4), 
 #cart table td:nth-child(5),
-#cart table td:nth-child(6){
+#cart table td:nth-child(6),
+#cart table td:nth-child(7){
   width: 150px;
   text-align: center;
 }
@@ -329,23 +358,30 @@ p {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin-top: 50px;
-  margin-right: 10%;
-  
+  /* margin-top: 50px; */
+  margin-right: 20%;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   
   
 }
 
 #subtotal table{
-  border-collapse: collapse;
+  /* border-collapse: collapse;
   width: 20%;
-  margin-bottom: 20px;
+  margin-bottom: 20px; */
+
+  
 }
+
+
 
 #subtotal table td{
   width: 10%;
   border: 1px solid gainsboro;
-  padding: 10px;
+  padding: 20px;
   font-size: 13px;
 }
 
@@ -401,8 +437,8 @@ p {
 
 
 
-#page-header .about-header{
-  background: rgba(0,0,0,0.7) url('../images/aboutUsHeader.jpg');
+.about-header{
+  background: rgb(251,219,101);
   height: 20vh;
   background-blend-mode: darken;
   display: flex;
@@ -411,11 +447,7 @@ p {
   padding-top: 50px;
 }
 
-#page-header .about-header h2{
-  color: white;
-}
-
-#page-header .about-header p{
+.about-header h1{
   color: white;
 }
 
@@ -434,6 +466,121 @@ p {
   padding-left: 40px;
 }
 
+/* login/signup */
+
+.body{
+  margin: 0;
+  padding: 0;
+  font-family: montserrat;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background: white;
+  border-radius: 10px;
+
+}
+
+.center h1{
+  text-align: center;
+  padding: 0 0 20px 0;
+  border-bottom: 1px solid silver;
+}
+
+.center form{
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+form .txt-field{
+  position: relative;
+  border-bottom: 2px solid #adadad;
+  margin: 30px 0;
+}
+
+.txt-field input{
+  width: 100%;
+  padding: 0 5px;
+  height: 40px;
+  font-size: 16px;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.txt-field label {
+  position: absolute;
+  top: 50px;
+  left: 5px;
+  color: #adadad;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.txt-field span::before{
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background:rgba(31, 58, 147,0.8);
+  transition: .5s;
+}
+
+.txt-field input:focus ~ label,
+.txt-field input:focus ~ label{
+  top: -5px;
+  color: rgba(31, 58, 147,0.8);
+
+}
+
+.txt-field input:focus ~ span::before,
+.txt-field input:focus ~ span::before{
+ width: 100%;
+
+}
+
+.button{
+  width: 100%;
+  height: 50px;
+  border: 1px solid;
+  background-color: rgba(31, 58, 147,0.8);
+  border-radius: 25px;
+  font-size: 18px;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+}
+
+.button:hover{
+  border-color: #36517c;
+  transition: .5s;
+}
+
+.signup-link{
+  margin: 30px 0;
+  text-align: center;
+  font-size: 16px;
+  color: #666666;
+}
+
+.signup-link a{
+  color: #2691d9;
+  text-decoration: none;
+}
+
+.signup-link a:hover{
+  color: #36517c;
+}
+
 @media (max-width:799px) {
   #navbar{
     display: flex;
@@ -448,7 +595,13 @@ p {
     background-color: white;
     box-shadow: 0 40px 60px rgba(0, 0, 0, 0.06);
     padding: 80px 0 0 10px
+  
 
+  }
+
+  #navbar.open{
+    right: 0px;
+    z-index: 10;
   }
   
   #navbar li {
@@ -464,6 +617,13 @@ p {
     color: black;
     font-size: 24px;
     padding-left: 20px;
+  }
+
+  .product-home img {
+    width: 100%;
+    height: 250px;
+    border-radius: 20px;
+  
   }
 
 }

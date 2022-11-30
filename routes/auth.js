@@ -1,5 +1,6 @@
 const router = require("express").Router();
-const bcryptjs = require('bcryptjs')
+const bcryptjs = require('bcryptjs');
+const app = require("../app");
 const User = require('../models/user.model')
 
 
@@ -27,6 +28,12 @@ router.post('/login', (req, res, next) => {
                     res.render('login', {errorMessage: "Incorrect Password or Username"})
                 }
             }
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+        .finally(() => {
+            console.log("These are RES locals", res.locals)
         })
     })
 

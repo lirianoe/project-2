@@ -6,11 +6,20 @@ var Shipping = require("../models/shipping.model")
 const { isLoggedIn, isAnon } = require('../middlewares/auth')
 
 
-router.get('/shopping-cart',  (req, res, next) => {
+router.get('/shopping-cart', isLoggedIn, (req, res, next) => {
     
     const cart = new Cart(req.session.cart ? req.session.cart : {});
     console.log(cart.generateArray())
     res.render('cart' , { cart: cart.generateArray(), totalPrice: cart.totalPrice })
+})
+router.get('/:id/edit-cart', isLoggedIn, (req, res, next) => {
+    
+    const cart = new Cart(req.session.cart ? req.session.cart : {});
+    const thisItem = cart.generateArray().filter((item) => item._id == req.params.id)
+    console.log(cart.generateArray())
+
+    console.log("THIS IS THE ITEM", req.session.cart.items[req.params.id])
+    res.render('edit-cart.hbs' , { thisItem: req.session.cart.items[req.params.id]})
 })
 
 router.get('/shipping', (req, res, next) => {
@@ -50,16 +59,17 @@ router.post('/shipping', (req, res, next) => {
     })
 })
 
+
+
 router.get('/:id/delete-product', (req, res, next) => {
 //DO NOT delete product from database
 //find cart in session and remove product from cart items object using product id
 console.log(req.session)
 delete req.session.cart.items[req.params.id]
 res.redirect('/cart/shopping-cart')
-    
-
-
-
 })
+
+
+
 
 module.exports = router

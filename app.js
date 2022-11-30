@@ -25,6 +25,12 @@ var indexRouter = require("./routes/index");
 var authRouter = require("./routes/auth");
 var cartRouter = require("./routes/cart");
 
+app.use(function (req, res, next) {
+  // Make `user` and `authenticated` available in templates
+  res.locals.isLoggedIn = req.session.user
+  // res.locals.authenticated = !req.user.anonymous
+  next()
+})
 app.use("/", indexRouter);
 app.use("/auth", authRouter);
 app.use("/cart", cartRouter);

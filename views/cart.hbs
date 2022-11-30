@@ -1,13 +1,31 @@
+ <div id="header">
+      <a class="logo "href="#"><img src="../images/logo.jpg" alt="logo"></a>
+    <div>
+      <ul id="navbar">
+        <li><a href="/home">Home</a></li>
+        <li><a href="/auth/login">Login/Sign Up</a></li>
+        <li><a href="/aboutUs">About Us</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/cart/shopping-cart"><i class="fa-solid fa-bag-shopping"></i></a></li>
+      </ul>
+    </div>
+     <div id="mobile">
+          <a href="/cart/shopping-cart"><i class="fa-solid fa-bag-shopping"></i></a>
+          <i id="bar" class="fas fa-bars"></i>
+        </div>
+    </div>
+
+
 <div id="cart">
 <table width="100%">
     <thead>
         <tr>
             <td>Remove</td>
-            <td>Image</td>
             <td>Product</td>
             <td>Price</td>
             <td>Quantity</td>
             <td>Subtotal</td>
+            <td>Edit</td>
             
         </tr>
     </thead>
@@ -15,11 +33,11 @@
         {{#each cart}}
         <tr>
             <td><a href="/cart/{{item._id}}/delete-product"><i class="fa-solid fa-trash"></i></a></td>
-            <td><img src="{{item.imageUrl}}" alt=""></td>
-            <td><strong>{{item.name}}</strong></td>
+            <td><strong><img src="{{item.imageUrl}}" alt="">{{item.name}}</strong></td>
             <td><span>${{item.price}}</span></td>
             <td><span>{{qty}}</span></td>
             <td><span>${{price}}</span></td>
+            <td><a href="/cart/{{item._id}}/edit-cart"><i class="fa-solid fa-pen-to-square"></i></a></td>
             
         </tr> 
         {{/each}}
@@ -49,4 +67,6 @@
     </div>
   
   
+  
+
   

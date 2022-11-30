@@ -1,5 +1,5 @@
  <div id="header">
-      <a class="logo "href="#"><img src="../images/logo.jpg" alt="logo"></a>
+      <a class="logo "href="#"><img src="../images/logo.jpg" alt=""></a>
     <div>
       <ul id="navbar">
         <li><a href="/home">Home</a></li>
@@ -7,6 +7,9 @@
         <li><a href="/aboutUs">About Us</a></li>
         <li><a href="/contact">Contact</a></li>
         <li><a href="/cart/shopping-cart"><i class="fa-solid fa-bag-shopping"></i></a></li>
+        {{#if isLoggedIn}}
+        <li><a href="/auth/logout">Log Out</a></li>
+        {{/if}}
       </ul>
     </div>
         <div id="mobile">
@@ -32,7 +35,7 @@
     <div class="description">
     <h5>{{name}}</h5>
     <h4>${{price}}</h4>
-    <a href="/cart/{{id}}"><i class="fa-solid fa-bag-shopping" ></i></a>
+    <a href="{{id}}"><i class="fa-solid fa-bag-shopping" ></i></a>
 </div>
 <a href="{{id}}">see Details</a>
 
@@ -40,3 +43,5 @@
     {{/each}}
     </div>
 </div>  
+
+<script src="/javascripts/navbar.js"></script>

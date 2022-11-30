@@ -1,6 +1,6 @@
 const isLoggedIn = (req, res, next) => {
     if(!req.session.user){
-        res.redirect('/cart/shopping-cart')
+        res.redirect('/auth/login')
         return
     }
     next();
@@ -8,7 +8,7 @@ const isLoggedIn = (req, res, next) => {
 
 const isAnon = (req, res, next) => {
     if(req.session.user){
-        res.redirect('/auth/signup')
+        res.redirect('/home')
         return
     }
     next();
