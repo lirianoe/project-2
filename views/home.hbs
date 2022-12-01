@@ -3,7 +3,9 @@
     <div>
       <ul id="navbar">
         <li><a href="/home">Home</a></li>
+        {{#if isNotLoggedIn}}
         <li><a href="/auth/login">Login/Sign Up</a></li>
+        {{/if}}
         <li><a href="/aboutUs">About Us</a></li>
         <li><a href="/contact">Contact</a></li>
         <li><a href="/cart/shopping-cart"><i class="fa-solid fa-bag-shopping"></i></a></li>

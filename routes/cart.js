@@ -26,7 +26,7 @@ router.get('/shipping', (req, res, next) => {
     res.render('shipping')
 })
 
-router.get("/:id", (req, res, next) => {
+router.get("/:id", isLoggedIn, (req, res, next) => {
   const productId = req.params.id;
   const cart = new Cart(req.session.cart ? req.session.cart : {});
 
