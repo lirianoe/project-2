@@ -1,0 +1,36 @@
+<div id="header">
+    <div class="icon">
+        <a href="/auth/account"><i class="fa-solid fa-arrow-left"></i></a>
+    </div>
+    </div>
+
+<div class="center">
+
+<div class="errorMessage">
+{{#if errorMessage}}
+<p style="color: red;">{{errorMessage}}</p>
+{{/if}}
+</div>
+
+<h1>CHANGE YOUR INFO</h1>
+
+<form action="/auth/change-info" method="post" class="logIn">
+
+
+<div class="txt-field">
+  <label for="username">Username:</label>
+    <input type="text" name="username" id="username" placeholder="{{isLoggedIn.username}}" />
+  
+  </div>
+
+  
+
+  <div class="txt-field">
+    <label for="password">Password</label>
+    <input type="password" name="password" id="passwordInput" placeholder="*****"/>
+    
+  </div>
+  
+  <button type="submit" class="button">Submit</button>
+
+</div>

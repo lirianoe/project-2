@@ -2,6 +2,12 @@
 
 <div id="shipping">
 
+  <div class="errorMessage">
+{{#if errorMessage}}
+<p style="color: red;">{{errorMessage}}</p>
+{{/if}}
+</div>
+
   <div class="icon">
         <a href="/auth/login"><i class="fa-solid fa-arrow-left"></i></a>
     </div>
@@ -57,7 +63,7 @@
     <label for="state"></label>
   </div>
   <div>
-    <input type="text" name="text" id="text" placeholder="State*"/>
+    <input type="text" name="state" id="text" placeholder="State*"/>
   </div>
 
   <br />
@@ -85,9 +91,6 @@
 
 <br>
 
-{{#if errorMessage}}
-<p style="color: red;">{{errorMessage}}</p>
-{{/if}}
 
 </div>
 

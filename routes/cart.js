@@ -34,13 +34,19 @@ router.get("/:id", isLoggedIn, (req, res, next) => {
     cart.add(foundProduct, foundProduct.id);
     req.session.cart = cart;
     console.log(req.session)
-    res.redirect("/home");
+    res.redirect("/cart/shopping-cart");
   });
 });
 
 
 
 router.post('/shipping', (req, res, next) => {
+
+    if(!req.body.firstName || !req.body.lastName || !req.body.streetAddress || !req.body.apt || !req.body.city || !req.body.state || !req.body.zipCode || !req.body.phoneNumber){
+        res.render('shipping', {errorMessage: "All fields are required"})
+        return
+    }
+        else {
     Shipping.create({
     firstName: req.body.firstName,
     lastName: req.body.lastName,
@@ -57,6 +63,7 @@ router.post('/shipping', (req, res, next) => {
     .catch((err) => {
         res.send(err)
     })
+    }
 })
 
 
@@ -65,7 +72,10 @@ router.get('/:id/delete-product', (req, res, next) => {
 //DO NOT delete product from database
 //find cart in session and remove product from cart items object using product id
 console.log(req.session)
-delete req.session.cart.items[req.params.id]
+const cart = new Cart(req.session.cart ? req.session.cart : {});
+
+cart.remove(req.params.id)
+req.session.cart = cart;
 res.redirect('/cart/shopping-cart')
 })
 
