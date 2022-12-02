@@ -26,6 +26,24 @@ module.exports = function Cart(oldCart) {
     delete this.items[id]
 }
 
+//this function is to remove an item from cart
+// this.remove = function (item, id) {
+
+//   let storedItem = this.items[id];
+
+//   if(storedItem.qty > 1){
+      
+//       console.log("stored item qty is ", storedItem.qty)
+//       storedItem.qty -= 1;
+//       storedItem.price = storedItem.item.price * storedItem.qty;
+//       this.totalQty--;
+//       this.totalPrice -= storedItem.item.price;
+//   } else if (storedItem.qty === 1){
+//       this.removeAll(id)
+//   }
+  
+// }
+
   this.generateArray = () => {
     const arr = [];
     for (let id in this.items) {

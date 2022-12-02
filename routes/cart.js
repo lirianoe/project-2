@@ -79,6 +79,15 @@ req.session.cart = cart;
 res.redirect('/cart/shopping-cart')
 })
 
+// //this will delete one item
+// router.post('/:id/delete-an-item', (req, res, next) =>{
+//     let cart = new Cart(req.session.cart);
+//     cart.remove(null, req.params.id)
+    
+//     // console.log(req.session)
+//     req.session.cart = cart
+//     res.redirect('/cart/shopping-cart')
+// })
 
 
 
